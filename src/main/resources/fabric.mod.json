@@ -18,12 +18,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "org.lightdust.datagen.dataGetter"
+      "org.lightdust.datagen.DataGetter"
     ]
   },
-  "mixins": [
-    "datagen_mixin.json"
-  ],
+  "mixins": [],
 
   "depends": {
     "fabricloader": ">=0.13.3",

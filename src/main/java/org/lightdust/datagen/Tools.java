@@ -4,21 +4,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-public class tools {
-
-    public static String escape(int N, String s) {
-        // 这个额外套了一层
-        return String.join("", Collections.nCopies((1 << N + 1) - 1, "\\")) + s;
-    }
-
+public class Tools {
     public static String getEnum(List<String> list,String name) {
-        String formatStr = "enum %s{\n%s}";
+        String formatStr = "\n\n\nclass %s(enum):\n%s";
         list = list.stream().map(s -> String.format("    %s = 'minecraft:%s'", s.toUpperCase(), s)).toList();
-        return String.format(formatStr, name, String.join(",\n", list));
+        return String.format(formatStr, name, String.join("\n", list));
     }
 }
 
@@ -32,7 +25,11 @@ class FileTool {
             }
             s = p;
         }
-        new File(s2.toString()).mkdirs();
+        try {
+            if (!new File(s2.toString()).mkdirs()) DataGetter.LOGGER.error("%s创建失败".formatted(s2));
+        } catch (SecurityException e){
+            DataGetter.LOGGER.error(e.toString());
+        }
     }
 
     static void Write(String path, String input) {
