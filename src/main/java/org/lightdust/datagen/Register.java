@@ -32,6 +32,12 @@ public class Register {
         M.put("ChunkStatus", Registry.CHUNK_STATUS.getIds());
         M.put("PaintingMotive", Registry.PAINTING_MOTIVE.getIds());
         M.put("RecipeType", Registry.RECIPE_TYPE.getIds());
+        M.put("LootPoolEntryType", Registry.LOOT_POOL_ENTRY_TYPE.getIds());
+        M.put("LootFunctionType", Registry.LOOT_FUNCTION_TYPE.getIds());
+        M.put("LootConditionType", Registry.LOOT_CONDITION_TYPE.getIds());
+        M.put("LootNumberProviderType", Registry.LOOT_NUMBER_PROVIDER_TYPE.getIds());
+        M.put("LootNbtProviderType", Registry.LOOT_NBT_PROVIDER_TYPE.getIds());
+        M.put("LootScoreProviderType", Registry.LOOT_SCORE_PROVIDER_TYPE.getIds());
         StringBuilder txt = new StringBuilder("from utils.enum import enum");
         for (Entry<String, Set<Identifier>> entry : M.entrySet()) {
             txt.append(Tools.getEnum(getList(entry.getValue()), entry.getKey()));
