@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Tools {
     public static String getEnum(List<String> list,String name) {
         String formatStr = "\n\n\nclass %s(enum):\n%s";
-        list = list.stream().map(s -> String.format("    %s = 'minecraft:%s'", s.toUpperCase(), s)).toList();
+        list = list.stream().map(s -> String.format("    %s = 'minecraft:%s'", s.toUpperCase().replace('.','_'), s)).toList();
         return String.format(formatStr, name, String.join("\n", list));
     }
 }
