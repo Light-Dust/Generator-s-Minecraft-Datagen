@@ -31,6 +31,7 @@ public class Register {
         M.put("Attribute", Registry.ATTRIBUTE.getIds());
         M.put("ChunkStatus", Registry.CHUNK_STATUS.getIds());
         M.put("PaintingMotive", Registry.PAINTING_MOTIVE.getIds());
+        M.put("RecipeType", Registry.RECIPE_TYPE.getIds());
         StringBuilder txt = new StringBuilder("from utils.enum import enum");
         for (Entry<String, Set<Identifier>> entry : M.entrySet()) {
             txt.append(Tools.getEnum(getList(entry.getValue()), entry.getKey()));
@@ -38,5 +39,6 @@ public class Register {
         txt.append("\n");
         FileTool.Write("./gens/MinecraftEnum.py", txt.toString());
         DataGetter.LOGGER.info("data loaded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.exit(0);
     }
 }
