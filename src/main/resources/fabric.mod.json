@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "datagen",
   "version": "${version}",
-
   "name": "Generator's Minecraft Datagen",
   "description": "Generator's Minecraft Datagen",
   "authors": [
@@ -11,10 +10,8 @@
   "contact": {
     "website": "https://github.com/Light-Dust/Generator-s-Minecraft-Datagen"
   },
-
   "license": "MIT",
   "icon": "assets/data_getter/icon.png",
-
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -22,14 +19,9 @@
     ]
   },
   "mixins": [],
-
   "depends": {
     "fabricloader": ">=0.13.3",
-    "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=17"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
