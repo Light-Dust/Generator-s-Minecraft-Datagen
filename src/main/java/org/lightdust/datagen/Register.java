@@ -38,12 +38,11 @@ public class Register {
         M.put("LootNumberProviderType", Registry.LOOT_NUMBER_PROVIDER_TYPE.getIds());
         M.put("LootNbtProviderType", Registry.LOOT_NBT_PROVIDER_TYPE.getIds());
         M.put("LootScoreProviderType", Registry.LOOT_SCORE_PROVIDER_TYPE.getIds());
-        StringBuilder txt = new StringBuilder("from utils.enum import enum");
         for (Entry<String, Set<Identifier>> entry : M.entrySet()) {
-            txt.append(Tools.getEnum(getList(entry.getValue()), entry.getKey()));
+            String txt = "from utils.enum import Enum" + Tools.getEnum(getList(entry.getValue()), entry.getKey()) +
+                    "\n";
+            FileTool.Write("./gens/%s.py".formatted(entry.getKey()), txt);
         }
-        txt.append("\n");
-        FileTool.Write("./gens/MinecraftEnum.py", txt.toString());
         DataGetter.LOGGER.info("data loaded!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         System.exit(0);
     }
